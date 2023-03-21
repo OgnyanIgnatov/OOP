@@ -1,3 +1,4 @@
+
 struct Inventory {
     int salty;
     int sweet;
@@ -7,6 +8,9 @@ struct Inventory {
     void changeSweets(int quantity);
     void changeDrinks(int quantity);
     void print();
+    int getSalty();
+    int getSweet();
+    int getDrinks();
 };
 
 class VendingMachine {
@@ -18,14 +22,18 @@ class VendingMachine {
     int capacity;
 
 public:
-    VendingMachine(); 
+    int getID();
+    char* getAddress();
+    Inventory getInventory();
+    char** getWarningMessages();
+    VendingMachine();
     VendingMachine(char* address, Inventory inventory);
-    VendingMachine(VendingMachine const& other); 
-    VendingMachine(VendingMachine&& other); 
+    VendingMachine(VendingMachine const& other);
+    VendingMachine(VendingMachine&& other);
     VendingMachine& operator=(VendingMachine const& other);
     ~VendingMachine();
 
-    
+
 };
 
 
@@ -33,13 +41,16 @@ class VendingController {
     VendingMachine* vendingMachineList;
     int numMachines;
     int capacity;
-
+    void resize();
 public:
-    
+    VendingController();
+    VendingController(int numMachines, int capacity);
+    VendingController(VendingController const& other);
+    ~VendingController();
     void addVendingMachine(VendingMachine machine);
-    void getAddressOfMachine(int machineID);
-    void getInventoryOfMachine(int machineID);
+    char* getAddressOfMachine(int machineID);
+    Inventory getInventoryOfMachine(int machineID);
     void sellProductInMachine(int machineID, char* product);
     void restockProductInMachine(int machineID, char* product);
     void seeWarningMsgForMachine(int machineID);
-};
+};    

@@ -22,7 +22,7 @@ Set::Set()
 {
 	this->numElements = 0;
 	this->capacity = INITIAL_CAPACITY;
-	this->arr = new int[this->capacity];
+	this->arr = { 0 };
 };
 
 Set::Set(Set const& other)

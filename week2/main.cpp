@@ -67,8 +67,8 @@ Time Time::get_diff(const Time other_time) const
 
 Event::Event()
 {
-    char title[128];
-    char organiser[128];
+    this->title[127] = { '\0' };
+    this->organiser[127] = { '\0' };
     Time strat_time;
     Time end_time;
 }

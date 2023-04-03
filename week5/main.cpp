@@ -70,7 +70,7 @@ VendingMachine::VendingMachine()
 	inventory.sweet = 0;
 	inventory.drinks = 0;
 	capacity = 10;
-	warningMessages = nullptr;
+	warningMessages = { nullptr };
 	numWarningMsgs = 0;
 }
 

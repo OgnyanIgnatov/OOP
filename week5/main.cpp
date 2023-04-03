@@ -65,12 +65,12 @@ char** VendingMachine::getWarningMessages()
 VendingMachine::VendingMachine()
 {
 	id = ID++;
-	address = new char[100];
+	address = nullptr;
 	inventory.salty = 0;
 	inventory.sweet = 0;
 	inventory.drinks = 0;
 	capacity = 10;
-	warningMessages = new char* [capacity];
+	warningMessages = nullptr;
 	numWarningMsgs = 0;
 }
 

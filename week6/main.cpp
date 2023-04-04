@@ -1,6 +1,8 @@
 #include <iostream>
 #include "string.h"
 #include <cstring>
+#include <fstream>
+#pragma warning(disable: 4996)
 
 int String::getLenght()
 {
@@ -18,8 +20,8 @@ bool String::empty()
 
 const char* String::c_str()
 {
-    char* arr = new char[getLenght()];
-    for (int i = 0; i < getLenght(); i++)
+    char* arr = new char[this->getLenght() + 1];
+    for (int i = 0; i < this->getLenght(); i++)
     {
         arr[i] = this->str[i];
     }
@@ -88,10 +90,10 @@ char String::operator[](int index)
     return this->str[index];
 }
 
-String String::operator+(String& other)
+String String::operator+(String& const other)
 {
-    char* arr = new char[getLenght() + other.getLenght()];
-    for (int i = 0; i < getLenght();i++)
+    char* arr = new char[this->getLenght() + other.getLenght() + 1];
+    for (int i = 0; i < getLenght(); i++)
     {
         arr[i] = this->str[i];
     }
@@ -105,8 +107,72 @@ String String::operator+(String& other)
     return ob;
 }
 
+String String::operator+(const char* other)
+{
+    char* arr = new char[getLenght() + strlen(other)];
+    for (int i = 0; i < this->getLenght(); i++)
+    {
+        arr[i] = str[i];
+    }
+    for (int j = getLenght(); j < strlen(other); j++)
+    {
+        arr[j] = other[j - getLenght()];
+    }
+
+    return arr;
+}
+
+bool String::operator==(const String& other)
+{
+    if (strcmp(this->str, other.str) == 0)
+    {
+        return true;
+    }
+
+    return false;
+}
+
+bool String::operator==(const char* other)
+{
+    if (strcmp(this->str, other) == 0)
+    {
+        return true;
+    }
+
+    return false;
+}
+
+bool String::operator!=(String const& other)
+{
+    if (strcmp(this->str, other.str) != 0)
+    {
+        return true;
+    }
+
+    return false;
+}
+
+bool String::operator!=(const char* other)
+{
+    if (strcmp(this->str, other) != 0)
+    {
+        return true;
+    }
+
+    return false;
+}
+
+std::istream& String::operator>> (std::istream& is)
+{
+    is.getline(this->str, strlen(this->str));
+    return is;
+}
+
+
+
+
 int main()
 {
-    std::cout << "Hello World!\n";
+    
 }
 

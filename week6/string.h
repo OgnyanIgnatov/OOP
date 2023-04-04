@@ -1,6 +1,7 @@
 
 
 
+
 class String
 {
 	char* str;
@@ -25,9 +26,22 @@ public:
 	bool operator==(const char* arr);
 	bool operator!=(String const& other);
 	bool operator!=(const char* other);
-	std::istream& operator>>(std::istream& is);
+};
+
+class Error
+{
+	unsigned int id;
+	String arr;
+
+public:
+
+	Error();
+	Error(unsigned int id, String& arr);
+	Error& operator=(Error const& other);
+	~Error();
 
 };
+
 
 
 

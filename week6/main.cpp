@@ -162,17 +162,38 @@ bool String::operator!=(const char* other)
     return false;
 }
 
-std::istream& String::operator>> (std::istream& is)
+
+Error::Error()
 {
-    is.getline(this->str, strlen(this->str));
-    return is;
+    this->id = -1;
+    this->arr = nullptr;
 }
 
+Error::Error(unsigned int id, String& arr)
+{
+    this->id = id;
+    this->arr = arr;
+}
 
+Error& Error::operator=(Error const& other)
+{
+    if (this != &other)
+    {
+        this->id = other.id;
+        this->arr = other.arr;
+    }
+    
+    return *this;
+
+}
+
+Error::~Error()
+{
+    this->arr.~String();
+}
 
 
 int main()
-{
-    
+{ 
+       
 }
-

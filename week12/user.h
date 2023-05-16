@@ -12,7 +12,7 @@ private:
 	void free();
 	void copy(const User& other);
 	void move(User&& other);
-	
+	char* encrypt(const char* password);
 
 public:
 
@@ -24,5 +24,5 @@ public:
 	User(User&& other);
 	char* getName();
 	char* getPassword();
-	char* encrypt(const char* password);
+	
 };

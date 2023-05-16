@@ -1,10 +1,9 @@
 #pragma once
 
-
 class User
 {
 
-private: 
+private:
 	static int id;
 	int user_id;
 	char* name;
@@ -13,10 +12,10 @@ private:
 	void free();
 	void copy(const User& other);
 	void move(User&& other);
-	char* encrypt(const char* password);
+	
 
 public:
-	
+
 	User(const char* name, const char* password);
 	User(const User& other);
 	User& operator=(const User& other);
@@ -25,5 +24,5 @@ public:
 	User(User&& other);
 	char* getName();
 	char* getPassword();
+	char* encrypt(const char* password);
 };
-

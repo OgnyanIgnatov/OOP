@@ -35,24 +35,21 @@ void User::move(User&& other)
 
 char* User::encrypt(const char* password)
 {
-	std::cout << "THIS IS LENGHT" << strlen(password) << " ";
-	int len = strlen(password);
-	std::cout << len;
-	this->password = new char[len + 1];
-	std::cout << "THIS IS LENGHT" << strlen(password) << " " << strlen(this->password);
-	for (int i = 0; i < len; i++)
+	this->password = new char[strlen(password) + 1];
+	strcpy(this->password, password);
+	for (int i = 0; i < strlen(password); i++)
 	{
-		char a = password[i];
+		char a = password[i] + 1;
 
-		if (password[i] == '0')
+		if (password[i] + 1 == '0')
 		{
 			a = '?';
 		}
-		if (password[i] == 'Z')
+		if (password[i] + 1 == 'Z')
 		{
 			a = 'A';
 		}
-		if (password[i] == 'z')
+		if (password[i] + 1 == 'z')
 		{
 			a = 'a';
 		}
@@ -68,7 +65,7 @@ User::User(const char* name, const char* password)
 	encrypt(password);
 
 	this->user_id = id++;
-	this->name = new char[strlen(name)];
+	this->name = new char[strlen(name) + 1];
 
 	strcpy(this->name, name);
 
@@ -111,7 +108,7 @@ char* User::getName()
 
 char* User::getPassword()
 {
-	return	this->password;
+	return this->password;
 }
 
 User::~User()

@@ -5,10 +5,10 @@ class MilkChocolate : virtual public Chocolate<int>
 {
 
 private:
+
+protected:
 	double milkPercentage;
-	
 public:
-	MilkChocolate();
 	MilkChocolate(int ID, const double milkPercentage);
 
 };

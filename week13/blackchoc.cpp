@@ -1,4 +1,5 @@
 #include "blackchoc.h"
+#include <iostream>
 
 bool BlackChocolate::isValid(const std::string ID) const
 {
@@ -11,18 +12,15 @@ bool BlackChocolate::isValid(const std::string ID) const
 		}
 	}
 	return true;
-	
+
 }
 
-BlackChocolate::BlackChocolate():Chocolate("Default")
+BlackChocolate::BlackChocolate(const std::string ID, const double cacaoPercantage) : Chocolate("Default")
 {
-	this->cacaoPercentage = -1;
-}
-
-BlackChocolate::BlackChocolate(const std::string ID, const double cacaoPercantage):Chocolate("Default")
-{
+	std::cout << "blackchoccons" << std::endl;
 	if (isValid(ID))
 	{
 		this->chocID = ID;
 	}
+	this->cacaoPercentage = cacaoPercantage;
 }

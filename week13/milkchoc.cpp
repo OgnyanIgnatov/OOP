@@ -1,11 +1,9 @@
 #include "milkchoc.h"
+#include <iostream>
 
-MilkChocolate::MilkChocolate() : Chocolate(-1)
-{
-	this->milkPercentage = -1;
-}
 
 MilkChocolate::MilkChocolate(int ID, const double milkPercantage) : Chocolate(ID)
 {
+	std::cout << "milkchoccon" << std::endl;
 	this->milkPercentage = milkPercantage;
 }

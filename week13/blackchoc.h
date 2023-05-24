@@ -7,10 +7,11 @@ class BlackChocolate :virtual public Chocolate<std::string>
 {
 
 private:
-	double cacaoPercentage;
+	
 	bool isValid(const std::string ID) const;
 
+protected:
+	double cacaoPercentage;
 public:
-	BlackChocolate();
 	BlackChocolate(const std::string ID, const double cacaoPercentage);
 };
